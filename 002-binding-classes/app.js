@@ -1,13 +1,22 @@
 let vm = Vue.createApp({
   data() {
-    return  {
+    return {
       isPurple: false,
-      selectedColor: ''
-    }
+      selectedColor: "",
+      size: 150,
+    };
   },
   computed: {
     circle_classes() {
-      return { purple: this.isPurple }
-    }
-  }
-}).mount('#app')
+      return { purple: this.isPurple };
+    },
+    circle_styles() {
+      return {
+        width: this.size + "px",
+        height: this.size + "px",
+        lineHeight: this.size + "px",
+        transform: "rotate(30deg",
+      };
+    },
+  },
+}).mount("#app");
