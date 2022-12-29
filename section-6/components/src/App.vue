@@ -22,7 +22,7 @@ export default {
   methods: {
     updateAge(num) {
       this.age += num;
-    }
-  }
+    },
+  },
 };
 </script>
