@@ -1,7 +1,8 @@
 <template>
   <button type="button" @click="flag = !flag">Toggle</button>
+
   <!-- <transition name="fade" mode="out-in">
-    <h2 v-if="flag" key="main">Hello, World!</h2>
+    <h2 v-if="flag" key="main">Hello world!</h2>
     <h2 v-else key="secondary">Another hello!</h2>
   </transition> -->
 
@@ -25,7 +26,10 @@
   <button @click="addItem">Add</button>
 
   <ul>
-    <transition-group name="fade">
+    <transition-group name="fade"
+      enter-active-class="animate__animated animate__flipInX"
+      leave-active-class="animate__animated animate__flipOutX"
+    >
       <li
         v-for="(number, index) in numbers"
         :key="number"
@@ -61,7 +65,7 @@ export default {
     enter(el) {
       console.log("enter event fired", el);
 
-      // const animation = el.animate([{ transform: "scale3d(0, 0, 0)" }, {}], {
+      // const animation = el.animate([{ transform: "scale3d(0,0,0)" }, {}], {
       //   duration: 1000,
       // });
 
@@ -78,7 +82,7 @@ export default {
     leave(el) {
       console.log("leave event fired", el);
 
-      // const animation = el.animate([{}, { transform: "scale3d(0, 0, 0)" }], {
+      // const animation = el.animate([{}, { transform: "scale3d(0,0,0)" }], {
       //   duration: 1000,
       // });
 
@@ -94,6 +98,14 @@ export default {
 </script>
 
 <style>
+.animate__flipOutX {
+  position: absolute;
+}
+
+.animate__animated {
+  animation-duration: 1.5s;
+}
+
 li {
   font-size: 22px;
   cursor: pointer;
@@ -104,6 +116,7 @@ h2 {
   padding: 20px;
   margin: 20px;
 }
+
 .fade-enter-from {
   opacity: 0;
 }
@@ -127,15 +140,16 @@ h2 {
 
 .zoom-enter-active {
   animation: zoom-in 1s linear forwards;
-  transition: all 1s linear;
+  transition: all 2s linear;
 }
 
 .zoom-leave-active {
   animation: zoom-out 1s linear forwards;
-  transition: all 1s linear;
+  transition: all 2s linear;
 }
-
-.zoom-enter-from,
+.zoom-enter-from {
+  opacity: 0;
+}
 .zoom-leave-to {
   opacity: 0;
 }
@@ -144,7 +158,6 @@ h2 {
   from {
     transform: scale(0, 0);
   }
-
   to {
     transform: scale(1, 1);
   }
@@ -154,7 +167,6 @@ h2 {
   from {
     transform: scale(1, 1);
   }
-
   to {
     transform: scale(0, 0);
   }
