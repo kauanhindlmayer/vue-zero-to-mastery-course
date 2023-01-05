@@ -11,6 +11,8 @@
     <p>
       {{ reversedPhrase }}
     </p>
+
+    <app-alert :user="user" />
   </div>
 </template>
 
@@ -25,9 +27,13 @@ import {
   onBeforeMount,
   onMounted,
 } from "vue";
+import AppAlert from "./components/Alert.vue";
 
 export default {
   name: "App",
+  components: {
+    AppAlert,
+  },
   setup() {
     onBeforeMount(() => {
       console.log("onBeforeMount()");
@@ -73,6 +79,7 @@ export default {
       phrase,
       reversedPhrase,
       double,
+      user,
     };
   },
 };
