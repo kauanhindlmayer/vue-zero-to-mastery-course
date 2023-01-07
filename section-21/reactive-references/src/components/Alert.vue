@@ -3,11 +3,13 @@
 </template>
 
 <script>
-import { computed } from 'vue';
+import { computed } from "vue";
 
 export default {
   props: ["user"],
-  setup(props) {
+  setup(props, context) {
+    context.emit("eventName", {});
+
     const flag = computed(() => {
       return props.user.name === "Jhon";
     });
