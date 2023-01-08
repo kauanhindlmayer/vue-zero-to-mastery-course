@@ -1,4 +1,4 @@
-# section-21-2
+# mixins
 
 This template should help get you started developing with Vue 3 in Vite.
 
