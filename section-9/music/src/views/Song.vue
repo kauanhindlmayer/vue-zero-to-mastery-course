@@ -176,5 +176,10 @@ export default {
     this.song = docSnapshot.data();
     this.getComments();
   },
+  watch: {
+    sort(newValue) {
+      this.$router.push({ query: { sort: newValue } });
+    },
+  },
 };
 </script>
