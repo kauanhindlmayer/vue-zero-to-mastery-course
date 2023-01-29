@@ -19,7 +19,7 @@ export default createI18n({
     ja: {
       currency: {
         style: "currency",
-        currency: "USD",
+        currency: "JPY",
       },
     },
   },
