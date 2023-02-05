@@ -1,5 +1,5 @@
 import { expect } from "vitest";
 
-it("sanity test", () => {
+test("sanity test", () => {
   expect(true).toBe(true);
 });
